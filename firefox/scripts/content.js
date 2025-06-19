@@ -15,7 +15,7 @@ class AnkizinCopier {
         extractId: (callback) => {
           // Extract article ID from current page URL (called only on click)
           const href = window.location.href;
-          const match = href.match(/\/article\/([a-zA-Z0-9]+)/);
+          const match = href.match(/\/article\/([a-zA-Z0-9_-]+)/);
           const id = match ? match[1] : null;
           callback(id);
         },
