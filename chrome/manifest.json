@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Ankizin ID Copier",
+  "description": "Extract article and module IDs from medical education websites for Anki integration",
+  "version": "1.0",
+  "icons": {
+    "128": "images/ankizin.png"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "css": ["styles/content.css"],
+      "matches": [
+        "https://next.amboss.com/*",
+        "https://viamedici.thieme.de/*",
+        "https://www.meditricks.de/*"
+      ]
+    }
+  ],
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://next.amboss.com/*",
+    "https://viamedici.thieme.de/*",
+    "https://www.meditricks.de/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/ankizin.svg"],
+      "matches": [
+        "https://next.amboss.com/*",
+        "https://viamedici.thieme.de/*",
+        "https://www.meditricks.de/*"
+      ]
+    }
+  ]
+}

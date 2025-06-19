@@ -1,0 +1,198 @@
+/* Ankizin Firefox Extension - Minimal CSS using native site styles */
+
+/* Only add essential styles for custom elements */
+.ankizin-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  /* Ensure PNG images scale properly */
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Ensure inline display with text */
+  display: inline-block;
+  vertical-align: middle;
+  /* margin-right: 4px; */
+}
+
+/* AMBOSS specific - minimal adjustments to native button style */
+.ankizin-button[data-site="next.amboss.com"] {
+  /* Inherit all native styles, just add a subtle indicator */
+  position: relative;
+}
+
+.ankizin-button[data-site="next.amboss.com"] [data-ds-id="Inline"] {
+  /* Ensure icon and text display on same line */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ViamedIci specific - minimal adjustments to native button style */
+.ankizin-button[data-site="viamedici.thieme.de"] {
+  /* Inherit all native styles */
+  position: relative;
+}
+
+/* Success state for all buttons */
+.ankizin-button.copied {
+  filter: hue-rotate(120deg) saturate(1.3) brightness(1.1);
+  transform: scale(0.98);
+  transition: all 0.2s ease;
+}
+
+/* Splash Screen Styles */
+.ankizin-splash {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateX(100px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.ankizin-splash.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.splash-content {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #e2e8f0;
+  min-width: 220px;
+  max-width: 300px;
+}
+
+.ankizin-splash.error .splash-content {
+  border-color: #feb2b2;
+  background: #fffbfb;
+}
+
+.ankizin-splash.success .splash-content {
+  border-color: #9ae6b4;
+  background: #f7fffa;
+}
+
+.splash-icon {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: bold;
+  color: #48bb78;
+}
+
+.ankizin-splash.error .splash-icon {
+  color: #f56565;
+}
+
+.splash-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d3748;
+  text-align: center;
+}
+
+.splash-id {
+  font-family: 'SF Mono', Monaco, 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+  font-size: 12px;
+  color: #4a5568;
+  background: #f7fafc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Fallback styles for unknown sites */
+.ankizin-copier-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 8px 8px 8px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  min-height: 36px;
+}
+
+.ankizin-copier-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #7c8fff 0%, #8b5fbf 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ankizin-splash {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  
+  .splash-content {
+    margin: 0 auto;
+    max-width: calc(100vw - 40px);
+  }
+  
+  .ankizin-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .splash-content {
+    background: #1a202c;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+  
+  .ankizin-splash.error .splash-content {
+    background: #2d1b1b;
+    border-color: #fc8181;
+  }
+  
+  .ankizin-splash.success .splash-content {
+    background: #1a2e1a;
+    border-color: #68d391;
+  }
+  
+  .splash-text {
+    color: #e2e8f0;
+  }
+  
+  .splash-icon {
+    color: #68d391;
+  }
+  
+  .ankizin-splash.error .splash-icon {
+    color: #fc8181;
+  }
+  
+  .splash-id {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+}
