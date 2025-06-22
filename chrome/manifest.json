@@ -2,14 +2,18 @@
   "manifest_version": 3,
   "name": "Ankizin ID Copier",
   "description": "Extract article and module IDs from medical education websites for Anki integration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icons": {
     "128": "images/ankizin.png"
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
-      "css": ["styles/content.css"],
+      "js": [
+        "scripts/content.js"
+      ],
+      "css": [
+        "styles/content.css"
+      ],
       "matches": [
         "https://next.amboss.com/*",
         "https://viamedici.thieme.de/*",
@@ -17,7 +21,7 @@
       ]
     }
   ],
-  "permissions": ["activeTab"],
+  "permissions": [],
   "host_permissions": [
     "https://next.amboss.com/*",
     "https://viamedici.thieme.de/*",
@@ -25,7 +29,9 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["images/ankizin.svg"],
+      "resources": [
+        "images/ankizin.svg"
+      ],
       "matches": [
         "https://next.amboss.com/*",
         "https://viamedici.thieme.de/*",

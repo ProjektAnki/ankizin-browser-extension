@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Ankizin ID Copier",
   "description": "Extract article and module IDs from medical education websites for Anki integration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icons": {
     "128": "images/ankizin.png"
   },
@@ -23,7 +23,6 @@
     }
   ],
   "permissions": [
-    "activeTab",
     "https://next.amboss.com/*",
     "https://viamedici.thieme.de/*",
     "https://www.meditricks.de/*"
